@@ -5,11 +5,8 @@ import java.util.List;
 
 public class Stock implements StockInterface {
     private List<Product> products;
-    private Integer totalItems;
-
     public Stock() {
         products = new LinkedList<>();
-        this.totalItems = 0;
     }
 
     @Override
@@ -18,7 +15,6 @@ public class Stock implements StockInterface {
             return false;
         }
         products.add(product);
-        totalItems += product.getQuantity();
         return true;
     }
 
@@ -29,7 +25,6 @@ public class Stock implements StockInterface {
             return false;
         }
         products.remove(product);
-        totalItems -= product.getQuantity();
         return true;
     }
 
@@ -43,9 +38,5 @@ public class Stock implements StockInterface {
             }
         }
         return null;
-    }
-
-    public Integer getTotalItems() {
-        return totalItems;
     }
 }
